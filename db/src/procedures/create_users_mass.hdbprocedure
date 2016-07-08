@@ -34,7 +34,7 @@ BEGIN
 
 	
    FOR crow AS cur DO
-     call "GRANT_ACTIVATED_ROLE"(crow.ROLE_NAME, :lv_user);
+--     call "GRANT_ACTIVATED_ROLE"(crow.ROLE_NAME, :lv_user);
    END FOR;
    
    

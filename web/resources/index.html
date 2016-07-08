@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+ <title>Workshop User Management</title>
+ <link type="image/x-icon" href="./images/favicon.ico" rel="shortcut icon">
+ <link type="image/x-icon" href="./images/favicon.ico" rel="icon"> 
+<!-- 1.) Load SAPUI5 (from a remote server), select theme and control library -->
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.ui.ux3,sap.ui.commons,sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal">
+		</script>
+	  <script>
+   			
+   			  var bDone = false;
+   			/*************** Hijacking for Gold Reflection *************/
+   			if (sap.ui.getCore().getConfiguration().getTheme() == "sap_goldreflection" || "sap_bluecrystal") { // this line is a hack, the rest of this coding is what a BusyIndicator hijacker could do
+   				sap.ui.core.BusyIndicator.attachOpen(function(oEvent) {
+   					$Busy = oEvent.getParameter("$Busy");
+   					iBusyPageWidth = jQuery(document.body).width();
+   					$Busy.css("top", "0").css("width", iBusyPageWidth + "px");
+   					bBusyAnimate = true;
+   					iBusyLeft = $Busy[0].offsetLeft;
+   					window.setTimeout(animationStep, iBusyTimeStep);
+   				});
+   				sap.ui.core.BusyIndicator.attachClose(function(oEvent) {
+   					bBusyAnimate = false;
+   				});
+   			}
+   			var bBusyAnimate = false;
+   			var iBusyLeft = 0;
+   			var iBusyDelta = 60;
+   			var iBusyTimeStep = 50;
+   			var iBusyWidth = 500;
+   			var iBusyPageWidth;
+   			var $Busy;
+   			function animationStep() {
+   				if (bBusyAnimate) {
+   					iBusyLeft += iBusyDelta;
+   					if (iBusyLeft > iBusyPageWidth) {
+   						iBusyLeft = -iBusyWidth;
+   					}
+   					$Busy.css("background-position", iBusyLeft + "px 0px");
+   					window.setTimeout(animationStep, iBusyTimeStep);
+   				}
+   			}
+   			/*************** END of Hijacking for Gold Reflection *************/
+   			
+   			  
+			         sap.ui.localResources("user_management");
+                     var view = sap.ui.view({id:"idShell1", viewName:"user_management.Shell", type:sap.ui.core.mvc.ViewType.JS});
+   			         view.placeAt("content");
+   			  </script>
+
+       </head>
+       <body class="sapUiBody" role="application">
+              <div id="content"></div>
+       </body>
+</html>

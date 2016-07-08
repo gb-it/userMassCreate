@@ -18,6 +18,30 @@ modules:
        key: hdi-sys-service
        service: ~{sys-service-name}   
 
+
+- name: web
+  type: html5
+  path: web
+  requires:
+    - name: userMassCreate-uaa
+    - name: nodejs
+      group: destinations
+      properties:
+        name: nodejs
+        url: ~{url}
+        forwardAuthToken: true
+
+- name: js
+  type: nodejs
+  path: js
+  provides: 
+    - name: nodejs
+      properties:
+        url: "${default-url}"
+  requires:
+    - name: userMassCreate-uaa
+    - name: hdi-container  
+    
 resources:
 - name: hdi-container
   type: com.sap.xs.hdi-container
