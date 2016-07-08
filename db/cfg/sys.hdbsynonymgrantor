@@ -1,0 +1,57 @@
+{
+  "CROSS_SCHEMA_SYS": {
+    "object_owner" : {
+      "object_privileges":[ 
+        { 
+          "schema":"SYS",
+          "name": "ROLES",
+          "type": "VIEW",
+          "privileges":["SELECT"]
+        },
+        { 
+          "schema":"SYS",
+          "name": "GRANTED_ROLES",
+          "type": "VIEW",          
+          "privileges":["SELECT"]
+        }, 
+        { 
+          "schema":"SYS",
+          "name": "USERS",
+          "type": "VIEW",          
+          "privileges":["SELECT"]
+        },
+        { 
+          "schema":"_SYS_REPO",
+          "name": "GRANT_ACTIVATED_ROLE",
+          "type": "PROCEDURE",          
+          "privileges":["EXECUTE"]
+        }        
+      ],
+      "system_privileges":[
+        "USER ADMIN"
+      ]   
+    },
+    "application_user" : {
+      "object_privileges":[ 
+        { 
+          "schema":"SYS",
+          "name": "ROLES",
+          "type": "VIEW",
+          "privileges":["SELECT"]
+        },
+        { 
+          "schema":"SYS",
+          "name": "GRANTED_ROLES",
+          "type": "VIEW",          
+          "privileges":["SELECT"]
+        }, 
+        { 
+          "schema":"SYS",
+          "name": "USERS",
+          "type": "VIEW",          
+          "privileges":["SELECT"]
+        }        
+      ]
+    }
+  }
+}

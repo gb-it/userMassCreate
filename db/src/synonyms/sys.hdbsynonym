@@ -1,0 +1,32 @@
+{
+  "DUMMY": {
+    "target": {
+      "object": "DUMMY",
+      "schema": "SYS"
+    }
+  },
+  "ROLES": {
+    "target": {
+      "object": "ROLES",
+      "schema": "SYS"
+    }
+  },
+  "GRANTED_ROLES": {
+    "target": {
+      "object": "GRANTED_ROLES",
+      "schema": "SYS"
+    }
+  },
+  "USERS": {
+    "target": {
+      "object": "USERS",
+      "schema": "SYS"
+    }
+  },
+  "GRANT_ACTIVATED_ROLE": {
+    "target": {
+      "object": "GRANT_ACTIVATED_ROLE",
+      "schema": "_SYS_REPO"
+    }
+  }
+}

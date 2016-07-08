@@ -1,0 +1,38 @@
+_schema-version: 2.0.0
+ID: userMassCreate
+version: 0.0.1
+
+modules:
+- name: db
+  type: hdb
+  path: db
+  requires:
+   - name: hdi-container
+     properties:
+       key: hdi-local-service
+       service: ~{hdi-service-name}
+       TARGET_CONTAINER: ~{hdi-service-name} 
+   - name: CrossSchemaSys
+     group: SERVICE_REPLACEMENTS
+     properties:
+       key: hdi-sys-service
+       service: ~{sys-service-name}   
+
+resources:
+- name: hdi-container
+  type: com.sap.xs.hdi-container
+  properties:
+    hdi-service-name: ${service-name}
+  parameters:  
+    config:
+      schema: WORKSHOP_USER_CREATION
+      
+- name: CrossSchemaSys
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: CROSS_SCHEMA_SYS
+  properties:
+    sys-service-name: ${service-name}
+    
+- name: userMassCreate-uaa
+  type: com.sap.xs.uaa
