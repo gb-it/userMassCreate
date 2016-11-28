@@ -1,15 +1,25 @@
 {
-	"welcomeFile": "index.html",
-	"authenticationMethod": "route",
-		"routes": [{
-		"source": "/rest(.*)",
-		"destination": "nodejs",
-		"csrfProtection": false,
-		"authenticationType": "xsuaa" 
-	},
-	{
-		"source": "^/(.*)$",
-		"localDir": "resources",
-		"authenticationType": "xsuaa"
-	}]
+  "welcomeFile": "index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "/rest(.*)",
+      "destination": "nodejs",
+      "csrfProtection": false,
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/(.*)$",
+      "localDir": "resources",
+      "authenticationType": "xsuaa",
+      "replace": {
+        "pathSuffixes": [
+          "index.html"
+        ],
+        "vars": [
+          "ui5liburl"
+        ]
+      }
+    }
+  ]
 }

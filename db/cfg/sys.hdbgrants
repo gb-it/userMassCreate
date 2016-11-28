@@ -1,9 +1,6 @@
 {
   "CROSS_SCHEMA_SYS": {
     "object_owner" : {
-     "roles":[  
-         "WORKSHOP"
-       ],
       "object_privileges":[ 
         { 
           "schema":"SYS",
@@ -35,9 +32,6 @@
       ]   
     },
     "application_user" : {
-     "roles":[  
-         "WORKSHOP"
-       ],
     "system_privileges":[
         "USER ADMIN"
       ],         
