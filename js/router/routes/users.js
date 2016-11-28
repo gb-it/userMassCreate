@@ -40,14 +40,15 @@ function createUsersInt(client, userJson, callback) {
 	}
 	var userId = userJson.user;
 
+	var hdbext = require("sap-hdbext");
 	//(Schema, Procedure, callback)
-	client.loadProcedure(null, "create_users_mass", function(err, sp) {
+	hdbext.loadProcedure(client, null, "create_users_mass", function(err, sp) {
 		if (err) {
 			callback(err);
 			return;
 		}
 		//(Input Parameters, callback(errors, Output Scalar Parameters, [Output Table Parameters])
-		sp.exec({
+		sp({
 			IM_PREFIX: userId.toUpperCase(),
 			IM_PASSWORD: userJson.password,
 			IM_NUMBER: userJson.number,
