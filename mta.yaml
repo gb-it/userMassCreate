@@ -1,6 +1,6 @@
 _schema-version: 2.0.0
 ID: userMassCreate
-version: 2.0.3
+version: 2.0.4
 
 modules:
 - name: db
@@ -26,9 +26,6 @@ modules:
     - name: ui5-lib
       properties:
         ui5liburl: ~{url}      
- #  - name: EXTERNAL_UI5
- #    properties:
- #      ui5liburl: ~{url}  
     - name: userMassCreate-uaa
     - name: nodejs
       group: destinations
@@ -74,11 +71,3 @@ resources:
      name: sapui5_fesv3
      version: "=1.40.12"     # The version (range) of the provider MTA.     
       
-- name: EXTERNAL_UI5
-  type: org.cloudfoundry.user-provided-service
-  parameters:
-    service-name: EXTERNAL_UI5
-    url: https://sapui5.hana.ondemand.com
-  properties:
-    ext-ui5-service-name: ${service-name}
-    url: ${url}  
