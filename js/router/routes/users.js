@@ -40,7 +40,7 @@ function createUsersInt(client, userJson, callback) {
 	}
 	var userId = userJson.user;
 
-	var hdbext = require("sap-hdbext");
+	var hdbext = require("@sap/hdbext");
 	//(Schema, Procedure, callback)
 	hdbext.loadProcedure(client, null, "create_users_mass", function(err, sp) {
 		if (err) {

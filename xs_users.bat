@@ -17,7 +17,7 @@ if "%3"=="" (
   for /l %%x in (%1, 1, %2) do (
     call set "mynum=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000%%x"
     call set "mynum=%%mynum:~-%3%%"
-    call set "var=xs set-space-role %4%%mynum%% SAP DEV SpaceDeveloper"
+    call set "var=xs set-space-role %4%%mynum%% SAP development SpaceDeveloper"
     REM echo "!var!"
     REM call echo %4%%mynum%%
     call !var!
